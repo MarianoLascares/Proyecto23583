@@ -465,10 +465,18 @@ height: 512px;
     font-size: var(--font-medium);
 }
 
+.collection__button-content{
+    display: flex;
+    flex-direction: row;
+}
+
 .collection__button-div{
-    display: inline-block;
-    margin: 0px var(--spacing-36) 0px var(--spacing-8);
-    
+    /*display: inline-block;
+    margin: 0px var(--spacing-36) 0px var(--spacing-8);*/
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 10px;
 }
 
 .collection__button-add{

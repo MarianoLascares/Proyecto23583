@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
     <link rel="stylesheet" href="../../css/index.css">
 </head>
 
@@ -82,11 +84,11 @@
                     alt="Figura coleccionable Funko de Grogu de la serie The Mandalorian">
             </picture>
         </section>
-        
-        <section class="slider container">
+         <section class="slider container glide">
             <h2 class="slider__title">PRODUCTOS RELACIONADOS</h2>
-            <ul class="slider__items">
-                <li class="slider__item">
+            <div class="glide track" data-glide-el="track">
+            <ul class="slider__items glide__slides">
+                <li class="slider__items glide__slides">
                     <article class="card-item">
                         <a class="card-item__link" href="">
                             <picture class="card-item__cover">
@@ -105,7 +107,7 @@
                         </a>
                     </article>
                 </li>
-                <li class="slider__item">
+                <li class="slider__item glide__slide">
                     <article class="card-item">
                         <a class="card-item__link" href="">
                             <picture class="card-item__cover">
@@ -124,7 +126,7 @@
                         </a>
                     </article>
                 </li>
-                <li class="slider__item">
+                <li class="slider__item glide__slide">
                     <article class="card-item">
                         <a class="card-item__link" href="">
                             <picture class="card-item__cover">
@@ -144,6 +146,11 @@
                     </article>
                 </li>
             </ul>
+                </div>
+            <div class="glide__arrows" data-glide-el="controls">
+  <button class= "glide__arrow glide__arrow--left" data-glide-dir="<"><iconifiy-icon icon="tabler:chevron-left"></iconify-icon></button>
+  <button class= "glide__arrow glide__arrow--right" data-glide-dir=">"><iconifiy-icon icon="tabler:chevron-right"></iconify-icon></button>
+</div>
         </section>
     </main>
     <footer>
@@ -169,6 +176,24 @@
         <p class="footer__copy">All rights 2023 - Funkoshop &copy;</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+     <script src= "https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+    <script>
+        new Glide('.glide' {
+        type: 'carousel',
+        startAt: 0,
+        perView: 3,
+        gap: 30,
+        breakpoint: {
+            991: {
+                perView: 2
+            },
+            768: {
+                perView: 1
+            }
+        }
+}
+         ).mount();
+    </script>
 </body>
 
 </html>

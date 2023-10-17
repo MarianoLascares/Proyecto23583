@@ -274,7 +274,7 @@ header {
     text-transform: uppercase;
 }
 iconify-icon {
-    color: var(--bg-dark-solid);
+    color: var(--dark-bg-solid);
     font-size: var(--font-small);
     font-weight: 700;
 }

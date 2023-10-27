@@ -446,6 +446,12 @@ max-width: 304px;
 height: 512px;
 }
 
+iconify-icon {
+    color: var(--dark-bg-solid);
+    font-size: var(--font-small);
+    font-weight: 700;
+}
+
 /* ITEMS */
 
 .collection__text-item {

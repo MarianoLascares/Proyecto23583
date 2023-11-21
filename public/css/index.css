@@ -651,3 +651,122 @@ iconify-icon {
     width: 45%;
     text-align: center;
 }
+
+
+/*--------------------ESTILOS DE LOGIN.HTML------------------------*/
+
+.login-container {
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 815px;
+    height: auto;
+    text-align: center;
+}
+
+.login-container p {
+    font-size: var(--font-large);
+    margin: var(--spacing-12) 0;
+}
+
+.login-container__details {
+    width: 340px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.login-btn {
+    margin-right: var(--spacing-12);
+}
+
+
+
+.link-password {
+    color: var(--secondary-solid);
+    font-size: var(--font-xsmall);   
+}
+
+.login-container-buttons {
+    display:flex ;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.login-container-buttons__btn {
+    width: 100px;
+    margin-right: var(--spacing-20);
+    
+}
+
+.login-container-buttons__btn-checkbox {
+    margin-right: var(--spacing-12);
+}
+
+
+/*---------------------ESTILOS CREATE.HTML and EDIT.HTML ------------------*/
+.title-create {
+    margin-top: var(--spacing-12);
+}
+.form-admin__select {
+    font-family: Inter;
+    font-size: var(--font-small);
+    font-weight: 300;
+    line-height: 29px;
+    letter-spacing: 0.04em;
+    margin: var(--spacing-12) 0;
+}
+
+.form-admin__product-details {
+    font-family: Inter;
+    font-size: var(--font-medium);
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0.04em;
+    margin: var(--spacing-16) 0;
+}
+
+
+.admin-input {   
+    border: none;
+    border-bottom: 2px solid var(--primary-solid);
+    display: inline-block;
+    height: 27px;
+    padding-left: var(--spacing-12);
+    
+}
+
+
+
+.form-admin__btn {
+    width: 175px;
+    height: 44.33px;
+    top: 885.3px;
+    left: 115.55px;
+    font-family: var(--base-font);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17px;
+    letter-spacing: 0em;
+    color: var(--light-font-solid);
+    background-color: var(--primary-solid);
+    border: none;
+    margin: var(--spacing-12) 0;
+}
+
+.form-admin__product-details img {
+    width: 150px;
+    margin-left: var(--spacing-12);
+}
+
+.form-admin__img-container {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    font-size: var(--font-xsmall);
+}

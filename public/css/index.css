@@ -775,3 +775,65 @@ iconify-icon {
     text-align: center;
     font-size: var(--font-xsmall);
 }
+
+
+/*---------------------ESTILOS LISTADO ------------------*/
+.buscador{
+    display: flex;
+    width: 50%;
+    margin-top: 15px;
+}
+
+.search-input{
+    width: 100%;
+}
+
+.title-container{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.add-container{
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+}
+
+.add-listado_button{
+    display: block;
+    background-color: var(--primary-solid);
+    color: var(--light-font-solid);
+    width: 39px;
+    height: 39px;
+    margin-bottom: 1px;
+    margin-left: 10px;
+    font-weight: 300;
+}
+
+.tabla-listado{
+    font-size: large;
+    width: 100%;
+    text-align: left;
+    margin-left: 10px;
+    margin-bottom: 25px;
+}
+
+.tabla-listado_tr {
+    padding: 100px;
+}
+
+.search-icon{
+    font-size: 35px;
+}
+
+.edit-icon{
+    color: dodgerblue;
+}
+
+.delete-icon{
+    color: red;
+}

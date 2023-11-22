@@ -56,7 +56,7 @@
               <input class="admin-input" type="text" id="product" name="product"placeholder="Kakashi Hatake Shippuden Saga">
             </div>
             <div class="form-admin__product-details">
-                <textarea name="" id="" cols="50" rows="10" placeholder="Descripción del producto"></textarea>
+                <textarea name="" id="" cols="100" rows="10" placeholder="Descripción del producto"></textarea>
             </div>
             <div class="form-admin__product-details">
                 <label for="sku"></label>SKU: <input class="admin-input" type="text" name="sku" placeholder="SSK111AB001">
@@ -75,46 +75,44 @@
             <div class="form-admin__product-details">
               <label for="img">Imágenes: </label><input type="file" accept="image/png,image/jpeg" id="img" capture="user" multiple>
             </div>
+            <div class="form-admin__product-details form-admin__img-container" >
+              <div>
+                <img src="/images/harry-potter/harry-1.webp" alt="" class="admin-input"><p>Frente</p>
+              </div>
+              <div>
+                <img src="/images/harry-potter/harry-box.webp" alt="" class="admin-input"><p>Dorso</p>
+              </div>
+            </div>
             <div class="form-admin__product-details">
               <input class="form-admin__btn" type="submit" value="Modificar producto" >
               
-            </div>
-            <div class="form-admin__product-details form-admin__img-container" >
-                <div>
-                    <img src="/images/harry-potter/harry-1.webp" alt="" class="admin-input"><p>Frente</p>
-                </div>
-                <div>
-                    <img src="/images/harry-potter/harry-box.webp" alt="" class="admin-input"><p>Dorso</p>
-                </div>
-                
             </div>
         </form>
       
      </main>
 
-     <footer class="footer">
-            <nav class="navbar container">
-                <ul class="nav__item">
-                  <li class="navbar__item">
-                    <a class="navbar__link" href="/pages/shop.html">SHOP</a>
-                  </li>
-                  <li>
-                    <a class="navbar__link" href="/pages/register.html">REGISTRARSE</a>
-                  </li>
-                  <li class="navbar__item">
-                    <a class="navbar__link" href="/pages/login.html">INGRESAR</a>
-                  </li>
-                  <li class="navbar__item">
-                    <a class="navbar__link" href="/pages/contact.html">CONTACTO</a>
-                  </li>
-                </ul>
-                <picture>
-                  <img src="/images/branding/isotype.svg" alt="isologotipo de la marca Funkoshop">
-                </picture>
-            </nav>
-
-        <p class="footer__copy">All rights reserved 2023 - Funkoshop &copy;</p>
-     </footer>
+     <footer>
+      <nav class="nabvar container">
+          <ul class="nabvar__item">
+              <li class="nabvar__item">
+                  <a  class="nabvar__link" href="/pages/shop/shop.html">SHOP</a>
+              </li>
+              <li class="nabvar__item">
+                  <a class="nabvar__link" href="pages/register.html">REGISTRARSE</a>
+              </li>
+              <li class="nabvar__item">
+                  <a class="nabvar__link" href="/pages/admin/login.html">LOGIN</a>
+              </li>
+              <li class="nabvar__item">
+                  <a class="nabvar__link" href="/pages/admin/contact.html">CONTACTO</a>
+              </li>
+          </ul>
+          <picture>
+              <img src="img/branding/isotype.svg" alt="isotipo de la marca Funkoshop">
+          </picture>
+      </nav>
+      <p class="footer__copy">All rights 2023 - Funkoshop &copy;</p>
+  </footer>
      <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
      

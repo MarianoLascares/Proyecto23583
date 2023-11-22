@@ -664,6 +664,10 @@ iconify-icon {
     width: 815px;
     height: auto;
     text-align: center;
+    
+}
+.title-container-h1{
+    font-size: xx-large;
 }
 
 .login-container p {
@@ -706,6 +710,7 @@ iconify-icon {
 
 .login-container-buttons__btn-checkbox {
     margin-right: var(--spacing-12);
+    margin-left: 15px;
 }
 
 
@@ -714,7 +719,7 @@ iconify-icon {
     margin-top: var(--spacing-12);
 }
 .form-admin__select {
-    font-family: Inter;
+    font-family: var(--alternative-font);
     font-size: var(--font-small);
     font-weight: 300;
     line-height: 29px;
@@ -729,8 +734,8 @@ iconify-icon {
     line-height: 29px;
     letter-spacing: 0.04em;
     margin: var(--spacing-16) 0;
+    font-family: var(--alternative-font);
 }
-
 
 .admin-input {   
     border: none;

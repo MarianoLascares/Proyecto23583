@@ -676,7 +676,7 @@ iconify-icon {
 }
 
 .login-container__details {
-    width: 340px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -711,6 +711,10 @@ iconify-icon {
 .login-container-buttons__btn-checkbox {
     margin-right: var(--spacing-12);
     margin-left: 15px;
+}
+
+.check-loguin{
+    font-size: 14px;
 }
 
 

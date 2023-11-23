@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Register</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
     <link rel="stylesheet" href="../../public/css/index.css">
@@ -33,22 +33,34 @@
     </header> <!----------------FIN HEADER---------------->
     
     <main class="container login-container">
-         <h1 class="title-container-h1">INGRESAR A MI CUENTA</h1>
+         <h1 class="title-container-h1">CREA TU CUENTA</h1>
+         <p class="title-container-h1">Completa el formulario para ser parte del mundo de los Funkos</p>
         <form action="" class="form-admin">
             <div class="form-admin__product-details login-container__details">
-                <label for="">Email</label>
-                <input class="admin-input" type="email" name="" id="" placeholder="ejemplo@correo.com">
+                <label for="nombre">Nombre:</label>
+                <input class="admin-input" type="text" name="nombre" id="nombre" placeholder="John">
             </div>
             <div class="form-admin__product-details login-container__details">
-                <label for="">Contraseña</label>
-                <input class="admin-input" type="password" name="" id="" placeholder="**********">
+                <label for="apellido">Apellido:</label>
+                <input class="admin-input" type="text" name="apellido" id="apellido" placeholder="Doe">
+            </div>
+            <div class="form-admin__product-details login-container__details">
+                <label for="email">Email:</label>
+                <input class="admin-input" type="email" name="email" id="email" placeholder="ejemplo@correo.com">
+            </div>
+            <div class="form-admin__product-details login-container__details">
+                <label for="pass">Contraseña:</label>
+                <input class="admin-input" type="password" name="pass" id="pass" placeholder="**********">
+            </div>
+            <div class="form-admin__product-details login-container__details">
+                <label for="passR">Repita Contraseña:</label>
+                <input class="admin-input" type="password" name="passR" id="passR" placeholder="**********">
             </div>
             <div class="form-admin__product-details login-container-buttons">
-                <input class="form-admin__btn login-container-buttons__btn" type="submit" value="INGRESAR" >
-                <input class="login-container-buttons__btn-checkbox" type="checkbox" name="rememberme" id="rememberme">
-                <label for="rememberme" class="check-loguin">Recordarme</label>
+                <input class="form-admin__btn login-container-buttons__btn" type="submit" value="Registrar" >
+                <input class="login-container-buttons__btn-checkbox" type="checkbox" name="TyC" id="TyC">
+                <label for="rememberme" class="check-loguin">Acepto <a href="#">Terminos y Condiciones</a></label>
             </div>
-            <a href="" class="link-password">Olvide mi contraseña</a>
         </form>
       
      </main>

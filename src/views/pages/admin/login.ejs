@@ -1,0 +1,28 @@
+<%- include('../../partials/head.ejs') -%>
+<body>
+    <%- include('../../partials/header.ejs') -%>
+    <main class="container login-container">
+         <h1 class="title-container-h1">INGRESAR A MI CUENTA</h1>
+        <form action="" class="form-admin">
+            <div class="form-admin__product-details login-container__details">
+                <label for="">Email</label>
+                <input class="admin-input" type="email" name="" id="" placeholder="ejemplo@correo.com">
+            </div>
+            <div class="form-admin__product-details login-container__details">
+                <label for="">Contraseña</label>
+                <input class="admin-input" type="password" name="" id="" placeholder="**********">
+            </div>
+            <div class="form-admin__product-details login-container-buttons">
+                <input class="form-admin__btn login-container-buttons__btn" type="submit" value="INGRESAR" >
+                <input class="login-container-buttons__btn-checkbox" type="checkbox" name="rememberme" id="rememberme">
+                <label for="rememberme" class="check-loguin">Recordarme</label>
+            </div>
+            <a href="" class="link-password">Olvide mi contraseña</a>
+        </form>
+      
+     </main>
+
+     <%- include('../../partials/footer.ejs') -%>
+     
+</body>
+</html>

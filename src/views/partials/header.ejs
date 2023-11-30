@@ -6,9 +6,31 @@
             </a>
         </picture>
         <ul class="nabvar__menu">
+
+
             <li class="nabvar__item with-submenu">
-                <a href="/shop" class="nabvar__link with-icon">SHOP<iconify-icon
-                        icon="tabler:chevron-down"></iconify-icon></a>
+                <a href="#" class="nabvar__link">
+                    ADMIN<iconify-icon icon="tabler:chevron-down"></iconify-icon>
+                </a>
+                <ul class="submenu">
+                    <li class="submenu__item">
+                        <a asp-controller="Funko" href="/admin/list" class="submenu__link">
+                            Listado de Funkos
+                        </a>
+                    </li>
+                    <li class="submenu__item">
+                        <a asp-controller="Usuario" href="/auth/register" class="submenu__link">
+                            Registrar Usuario
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="nabvar__item with-submenu">
+                <a href="#" class="nabvar__link">
+                    SHOP<iconify-icon icon="tabler:chevron-down"></iconify-icon>
+                </a>
                 <ul class="submenu">
                     <li class="submenu__item">
                         <a href="/shop" class="submenu__link">
@@ -28,16 +50,21 @@
                 </ul>
             </li>
             <li class="nabvar__item">
-                <a href="contact" class="nabvar__link">CONTACTO</a>
+                <a href="/contact" class="nabvar__link">CONTACTO</a>
             </li>
             <li class="nabvar__item">
                 <a href="/auth/login" class="nabvar__link">LOGIN</a>
             </li>
             <li class="nabvar__item">
                 <a href="/shop/cart" class="nabvar__cart">
-                    <img src="/img/icons/cart-icon.svg" alt="Icono de carrito">
+                    <img src="/img/icons/cart-icon.svg" class="cart_img" alt="Icono de carrito">
                 </a>
             </li>
         </ul>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
     </nav>
 </header>

@@ -1,10 +1,15 @@
 const fs = require('fs')
+const modelos = require('../models/items.js')
 
 const mainControllers = {
     //home: (req, res) => res.send('Ruta para la Vista de Home'),
-    home: (req, res) => {
+    home: async (req, res) => {
+        const licences = await modelos.getAllCollections()
+        const funkosSlide = await modelos.getSliderFunkos()
         res.render('index', {
-            title: 'Tienda Funko'
+            title: 'Tienda Funko',
+            licences: licences,
+            slider: funkosSlide
         })
     },
     //contact: (req, res) => res.send('Ruta para la Vista de Contact'),

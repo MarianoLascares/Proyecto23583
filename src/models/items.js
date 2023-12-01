@@ -1,5 +1,63 @@
 const { conn } = require('./../config/conn');
 
+const createFunko = async (params) => {
+    try {
+        console.log(params)
+        const [creado] = await conn.query(`INSERT INTO product SET ?;`, params);
+        return creado;
+        } catch (error) {
+        throw error;
+        } finally {
+        conn.releaseConnection();
+        }
+}
+
+const editFunko = async (params, product_id) => {
+    try {
+        const { product_name, product_description, price, stock, discount, sku, dues, image_front, image_back, licence_id, category_id } = params;
+        const updateFields = {};
+
+        if (product_name.trim() !== '') updateFields.product_name = product_name;
+        if (product_description.trim() !== '') updateFields.product_description = product_description;
+        if (!isNaN(price)) updateFields.price = price;
+        if (!isNaN(stock)) updateFields.stock = stock;
+        if (discount.trim() !== '') updateFields.discount = discount;
+        if (sku.trim() !== '') updateFields.sku = sku;
+        if (dues.trim() !== '') updateFields.dues = dues;
+        if (image_front !== undefined) updateFields.image_front = image_front;
+        if (image_back !== undefined) updateFields.image_back = image_back;
+        if (!isNaN(licence_id)) updateFields.licence_id = licence_id;
+        if (!isNaN(category_id)) updateFields.category_id = category_id;
+        
+        console.log(product_id)
+        console.log(params)
+        console.log(updateFields)
+
+        const [modificado] = await conn.query(`UPDATE product SET ? 
+                                            WHERE product_id = ?;`, 
+                                            [updateFields, product_id]);
+        return modificado;
+        } catch (error) {
+        throw error;
+        } finally {
+        conn.releaseConnection();
+        }
+}
+
+const deleteFunko = async (id) => {
+    try {
+        console.log(id)
+        const [deletedRows] = await conn.query(
+            'DELETE FROM product WHERE product_id = ?;', 
+            [id]
+        );
+    } catch (error) {
+    throw error;
+    } finally {
+    conn.releaseConnection();
+    }
+}
+
 const getAllCollections = async () => {
     try {
         const [rows] = await conn.query(`
@@ -19,7 +77,6 @@ const getAllCollections = async () => {
     conn.releaseConnection();
     }
 }
-
 
 const getAllFunkos = async () => {
     try {
@@ -86,37 +143,13 @@ const getSliderFunkosRelacionados = async (id) => {
     }
 }
 
-
-
-const deleteFunko = async (id) => {
-    try {
-    
-        const [selectedRow] = await conn.query(
-            'SELECT * FROM product WHERE product_id = ?;', 
-            [id]
-        );
-        const [deletedRows] = await conn.query(
-            'DELETE FROM product WHERE product_id = ?;', 
-            [id]
-        );
-
-        return {
-            deletedRows: deletedRows.affectedRows,
-            deletedFunko: selectedRow[0] || null
-        }
-    } catch (error) {
-    throw error;
-    } finally {
-    conn.releaseConnection();
-    }
-}
-
-
 module.exports = {
+    createFunko,
+    editFunko,
+    deleteFunko,
     getAllFunkos,
     getSliderFunkos,
     getFunkoId,
     getSliderFunkosRelacionados,
     getAllCollections,
-    deleteFunko
 }

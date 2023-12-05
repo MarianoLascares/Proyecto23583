@@ -2,7 +2,6 @@ const { conn } = require('./../config/conn');
 
 const createFunko = async (params) => {
     try {
-        console.log(params)
         const [creado] = await conn.query(`INSERT INTO product SET ?;`, params);
         return creado;
         } catch (error) {
@@ -29,10 +28,6 @@ const editFunko = async (params, product_id) => {
         if (!isNaN(licence_id)) updateFields.licence_id = licence_id;
         if (!isNaN(category_id)) updateFields.category_id = category_id;
         
-        console.log(product_id)
-        console.log(params)
-        console.log(updateFields)
-
         const [modificado] = await conn.query(`UPDATE product SET ? 
                                             WHERE product_id = ?;`, 
                                             [updateFields, product_id]);
@@ -46,7 +41,6 @@ const editFunko = async (params, product_id) => {
 
 const deleteFunko = async (id) => {
     try {
-        console.log(id)
         const [deletedRows] = await conn.query(
             'DELETE FROM product WHERE product_id = ?;', 
             [id]
@@ -69,7 +63,6 @@ const getAllCollections = async () => {
         ) AS ranked
         WHERE row_num = 1;
     `);
-    console.log(rows)
     return rows;
     } catch (error) {
     throw error;

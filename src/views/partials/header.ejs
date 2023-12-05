@@ -1,15 +1,15 @@
 <header>
-    <nav class="nabvar container">
-        <picture class="nabvar__logo">
-            <a href="/">
+    <nav class="navbar container">
+        <picture class="navbar__logo">
+            <a href="/home">
                 <img src="/img/branding/logo_light_horizontal.svg" alt="Logotipo de la Marca Funko">
             </a>
         </picture>
-        <ul class="nabvar__menu">
+        <ul class="navbar__menu">
 
 
-            <li class="nabvar__item with-submenu">
-                <a href="#" class="nabvar__link">
+            <li class="navbar__item with-submenu">
+                <a href="#" class="navbar__link">
                     ADMIN<iconify-icon icon="tabler:chevron-down"></iconify-icon>
                 </a>
                 <ul class="submenu">
@@ -27,8 +27,8 @@
             </li>
 
 
-            <li class="nabvar__item with-submenu">
-                <a href="#" class="nabvar__link">
+            <li class="navbar__item with-submenu">
+                <a href="#" class="navbar__link">
                     SHOP<iconify-icon icon="tabler:chevron-down"></iconify-icon>
                 </a>
                 <ul class="submenu">
@@ -49,14 +49,18 @@
                     </li>
                 </ul>
             </li>
-            <li class="nabvar__item">
-                <a href="/contact" class="nabvar__link">CONTACTO</a>
+            <li class="navbar__item">
+                <a href="/contact" class="navbar__link">CONTACTO</a>
             </li>
-            <li class="nabvar__item">
-                <a href="/auth/login" class="nabvar__link">LOGIN</a>
+            <li class="navbar__item">
+                <% if (sessionUser === undefined) { %>
+                    <a href="/auth/login" class="navbar__link">LOGIN</a>
+                <% } else { %>
+                    <a href="/auth/logout" class="navbar__link">LOGOUT</a>
+                <% } %>
             </li>
-            <li class="nabvar__item">
-                <a href="/shop/cart" class="nabvar__cart">
+            <li class="navbar__item">
+                <a href="/shop/cart" class="navbar__cart">
                     <img src="/img/icons/cart-icon.svg" class="cart_img" alt="Icono de carrito">
                 </a>
             </li>

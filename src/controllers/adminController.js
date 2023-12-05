@@ -57,7 +57,6 @@ const mainControllers = {
         async (req, res) => {
             let image_front
             let image_back
-            console.log(req.files['image_front'])
             if(req.files['image_front'] !== null){
                 image_front = req.body.image_front_old
             }else{
@@ -82,7 +81,7 @@ const mainControllers = {
                 licence_id: req.body.licence,
                 category_id: req.body.category,
             };
-            const agregado = await modelos.editFunko(params, product_id)
+            const modificado = await modelos.editFunko(params, product_id)
             res.redirect('/admin/list');
         }
     ], 

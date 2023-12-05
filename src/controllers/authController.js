@@ -1,31 +1,60 @@
 const modelos = require('../models/users.js')
+const crypt = require('bcryptjs')
 
 const mainControllers = {
-    //getLogin: (req, res) => res.send(`Ruta para la vista Login`),
     getLogin: (req, res) => {
-        res.render('../views/pages/admin/login.ejs', {
+        res.render('../views/pages/auth/login.ejs', {
             title: 'Login'
         })
     },
     postLogin: async (req, res) => {
         const {email, password} = req.body
         const valido = await modelos.verificarUser(email, password)
-        console.log(valido)
-        if(valido.length === 1){
-            res.redirect('/')
+        if(valido !== undefined){
+            req.session.userid = valido.user_id
+            res.redirect(`/home?user=${valido.user_id}`)
         } else {
             res.redirect('/auth/login')
         }
     },
-    //getRegister: (req, res) => res.send('Vista para la vista Registrar'),
     
     getRegister: (req, res) => {
-        res.render('../views/pages/admin/register.ejs', {
+        res.render('../views/pages/auth/register.ejs', {
             title: 'Register'
         })
     },
-    postRegister: (req, res) => res.send(`crear usuario con id ${req.params.id}`),
-    logout: (req, res) => res.send('Vista para la vista Logout')
+    postRegister: async (req, res) => {
+        const params = {
+            name: req.body.name,
+            lastname: req.body.lastname,
+            email: req.body.email,
+            password: req.body.password,
+        };
+        const agregado = await modelos.createUser(params)
+        res.redirect('/auth/login')
+    },
+
+    getEdit: (req, res) => {
+        res.render('../views/pages/auth/editUser.ejs', {
+            title: 'Register'
+        })
+    },
+    postEdit: async (req, res) => {
+        const product_id = req.body.user_id
+        const params = {
+            name: req.body.name,
+            lastname: req.body.lastname,
+            email: req.body.email,
+            password: req.body.password,
+        };
+        const modificado = await modelos.createUser(params, product_id)
+        res.redirect('/auth/loguin')
+    },
+
+    logout: (req, res) => {
+        req.session.userid = undefined; 
+        res.redirect('/')
+    }
 }
 
 module.exports = mainControllers

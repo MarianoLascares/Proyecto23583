@@ -2,7 +2,6 @@ const fs = require('fs')
 const modelos = require('../models/items.js')
 
 const mainControllers = {
-    //home: (req, res) => res.send('Ruta para la Vista de Home'),
     home: async (req, res) => {
         const licences = await modelos.getAllCollections()
         const funkosSlide = await modelos.getSliderFunkos()
@@ -12,9 +11,10 @@ const mainControllers = {
             slider: funkosSlide
         })
     },
-    //contact: (req, res) => res.send('Ruta para la Vista de Contact'),
     contact: (req, res) => {
-        res.render('../views/pages/shop/contact')
+        res.render('../views/pages/shop/contact',{
+            title: "Contacto"
+        })
     },
     about: (req, res) => res.send('Ruta para la Vista de About'),
     faqs: (req, res) => res.send('Ruta para la Vista de Faqs')

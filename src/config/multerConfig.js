@@ -2,11 +2,21 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './public/img/imgCargadas');
+    const licence_id = req.body.licence;
+    const licenceFolders = {
+      1: 'pokemon',
+      2: 'star-wars',
+      3: 'harry-potter'
+    };
+
+    const destinationFolder = `./public/img/${licenceFolders[licence_id]}`;
+    cb(null, destinationFolder);
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, file.fieldname + '-' + uniqueSuffix + '.' + file.originalname.split('.').pop());
+    const filename = `${file.fieldname}.${file.originalname.split('.').pop()}`;
+
+    cb(null, filename);
   },
 });
 

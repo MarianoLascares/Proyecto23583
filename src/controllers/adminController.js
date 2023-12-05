@@ -26,6 +26,10 @@ const mainControllers = {
     postCreate: [
         upload.fields(uploadFields),
         async (req, res) => {
+            const licenceFolders = {
+                1: '/img/pokemon/',
+                2: '/img/star-wars/',
+                3: '/img/harry-potter/'}
             const params = {
                 product_name: req.body.product_name,
                 product_description: req.body.product_description,
@@ -34,8 +38,8 @@ const mainControllers = {
                 discount: req.body.discount,
                 sku : req.body.sku,
                 dues: req.body.dues,
-                image_front: req.files['image_front'][0].filename, 
-                image_back: req.files['image_back'][0].filename,
+                image_front: licenceFolders[req.body.licence] + req.files['image_front'][0].filename, 
+                image_back: licenceFolders[req.body.licence] + req.files['image_back'][0].filename,
                 licence_id: req.body.licence,
                 category_id: req.body.category,
             };

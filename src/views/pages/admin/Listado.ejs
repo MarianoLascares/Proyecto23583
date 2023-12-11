@@ -1,0 +1,51 @@
+<%- include('../../partials/head.ejs') -%>
+<body>
+    <%- include('../../partials/headerAdmin.ejs') -%>    
+    <main class="container">
+        <div class="buscador">
+            <iconify-icon class="search-icon" icon="material-symbols:search"></iconify-icon>
+            <input type="text" class="search-input" name="" id="" placeholder="codigo, nombre o categoria">
+        </div>
+        <div class="title-container">
+            <h1 class="title-container-h1">LISTADO DE PRODUCTOS</h1>
+            <div class="add-container">
+                <h2>AGREGAR</h2>
+                <a href="/admin/create">
+                    <input type="button" class="add-listado_button" value="+">
+                </a>
+            </div>
+        </div>
+        <table class="tabla-listado">
+            <tr class="tabla-listado_tr">
+                <th>ID</th>
+                <th>Codigo</th>
+                <th>Nombre del Producto</th>
+                <th>Categoria</th>
+                <th></th>
+            </tr>
+            <% funkos.forEach(funko => { %>
+            <tr class="tabla-listado_tr">
+                <td><%= funko.product_id %></td>
+                <td><%= funko.sku %></td>
+                <td><%= funko.product_name %></td>
+                <td><%= funko.category_name %></td>
+                <td>
+                    <div class="delete-list">
+                        <a href="/admin/edit/<%= funko.product_id %>">
+                            <iconify-icon class="edit-icon" icon="ic:baseline-edit"></iconify-icon>
+                        </a>
+                        <form action="/admin/delete/<%= funko.product_id %>" method="post" id="deleteForm">
+                            <input type="hidden" name="confirm" id="confirm" value="false">
+                            <button type="submit" class="delete-button">
+                                <iconify-icon class="delete-icon" icon="material-symbols:delete"></iconify-icon>
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            <% }) %>
+        </table>      
+     </main>
+    <%- include('../../partials/footer.ejs') -%>     
+    </body>
+</html>

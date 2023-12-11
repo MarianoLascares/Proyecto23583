@@ -1,0 +1,76 @@
+<%- include('../../partials/head.ejs') -%>
+<body>
+    <%- include('../../partials/headerAdmin.ejs') -%>
+     <main class="container">
+         <h1 class="title-create">EDITAR ITEM</h1>
+        <form action="" method="post" enctype="multipart/form-data" class="form-admin">
+            <input type="hidden" for="product_id" name="product_id" value="<%= funko.product_id %>" />
+            <div class="form-admin__select">
+              <label for="category">Categoría: </label>
+              <select name="category" id="category" >
+                  
+                  <option value="1">Figuras</option>
+                  <option value="2">Remeras</option>
+                  <option value="3">Llaveros</option>
+              </select>
+              <label for="licence">Licencia: </label>
+              <select name="licence" id="licence" >
+                  <option value="<%= funko.licence_id %>" selected><%= funko.licence_name.toUpperCase() %></option>
+                  <option value="1">POKEMON</option>
+                  <option value="2">STAR-WARS</option>
+                  <option value="3">HARRY POTTER</option>
+              </select>
+            </div>
+            <div class="form-admin__product-details">
+              <label for="product_name">Nombre del producto:</label>
+              <input class="admin-input" type="text" for="product_name" name="product_name" placeholder="<%= funko.product_name %>">
+            </div>
+            <div class="form-admin__product-details">
+              <label for="product_description"></label>
+              <textarea id="product_description" name="product_description" cols="100" rows="10" placeholder="Descripción del producto"></textarea>
+            </div>
+            <div class="form-admin__product-details">
+                <label for="sku"></label>SKU: <input for="sku" class="admin-input" type="text" name="sku" placeholder="<%= funko.sku %>">
+                <label for="price"></label>Precio: <input for="price" class="admin-input" name="price" type="text" placeholder="$ <%= funko.price %>">
+                <label for="stock"></label>Stock: <input for="stock" class="admin-input" name="stock" type="text" placeholder="<%= funko.stock %>">
+            </div>
+            <div class="form-admin__product-details">
+              <label for="discount"></label>Descuento: <input for="discount" class="admin-input" type="text" name="discount" placeholder="<%= funko.discount %>%">
+              <label for="dues">Cuotas: </label>
+              <select for="dues" name="dues" id="dues">
+                <option value="3">3 cuotas sin interés</option>
+                <option value="6">6 cuotas sin interés</option>
+                <option value="12">12 cuotas sin interés</option>
+              </select>
+            </div>
+            <div class="form-admin__product-details">
+              <label for="image_front">Imágen: </label>
+              <input type="file" accept="image/png,image/jpeg" for="image_front" id="image_front" name="image_front" capture="user">
+            </div>
+            <div class="form-admin__product-details">
+              <label for="image_back">Imágen en caja: </label>
+              <input type="file" accept="image/png,image/jpeg,image/webp" for="image_back" id="image_back" name="image_back" capture="user">
+            </div>
+            <div class="form-admin__product-details form-admin__img-container" >
+              <div>
+                <img src="<%= funko.image_front %>" alt="" class="admin-input"><p>Frente</p>
+                <input type="hidden" for="image_front_old" value="<%= funko.image_front %>" />
+              </div>
+              <div>
+                <img src="<%= funko.image_back %>" alt="" class="admin-input"><p>Dorso</p>
+                <input type="hidden" for="image_back_old" value="<%= funko.image_back %>" />
+              </div>
+            </div>
+            <div class="form-admin__product-details">
+              <input class="form-admin__btn" type="submit" value="Modificar producto" >
+              
+            </div>
+        </form>
+      
+     </main>
+     <%- include('../../partials/footer.ejs') -%>
+     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+     
+</body>
+</html>

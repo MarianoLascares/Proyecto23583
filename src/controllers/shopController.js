@@ -1,8 +1,29 @@
+const modelos = require('../models/items.js')
+
 const mainControllers = {
-    shop: (req, res) => res.send('Ruta para la Vista de shop'),
-    searchItem: (req, res) => res.send(`buscar, encontrar y recibir de item id ${req.params.id}`),
+    shop: async (req, res) => {
+        const funkos = await modelos.getAllFunkos()
+        res.render('../views/pages/shop/shop.ejs', {
+            title: 'Shop',
+            objetos: funkos
+        })
+    },
+    searchItem: async (req, res) => {
+        const id = req.params.id;
+        const funkosSlide = await modelos.getSliderFunkosRelacionados(id)
+        const funko = await modelos.getFunkoId(id)
+        res.render('../views/pages/shop/item.ejs', {
+            title: 'Item',
+            funko: funko,
+            slider: funkosSlide
+        })
+    },
     addToCart: (req, res) => (req, res) => res.send(`agrega el item id ${req.params.id} al carrito`),
-    cart: (req, res) => res.send('Ruta para la Vista de Carrito'),
+    cart: (req, res) => {
+        res.render('../views/pages/shop/cart.ejs', {
+            title: 'Cart'
+        })
+    },
     checkout: (req, res) => res.send('Ir a la pagina Checkout')
 }
 

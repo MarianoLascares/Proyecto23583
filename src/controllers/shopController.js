@@ -12,6 +12,7 @@ const mainControllers = {
         const id = req.params.id;
         const funkosSlide = await modelos.getSliderFunkosRelacionados(id)
         const funko = await modelos.getFunkoId(id)
+        console.log(funko)
         res.render('../views/pages/shop/item.ejs', {
             title: 'Item',
             funko: funko,

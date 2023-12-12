@@ -23,19 +23,19 @@
             </div>
             <div class="form-admin__product-details">
               <label for="product_name">Nombre del producto:</label>
-              <input class="admin-input" type="text" for="product_name" name="product_name" placeholder="<%= funko.product_name %>">
+              <input class="admin-input" type="text" for="product_name" name="product_name" value="<%= funko.product_name %>">
             </div>
             <div class="form-admin__product-details">
               <label for="product_description"></label>
-              <textarea id="product_description" name="product_description" cols="100" rows="10" placeholder="Descripción del producto"></textarea>
+              <textarea id="product_description" name="product_description" cols="100" rows="10" ><%= funko.product_description %></textarea>
             </div>
             <div class="form-admin__product-details">
-                <label for="sku"></label>SKU: <input for="sku" class="admin-input" type="text" name="sku" placeholder="<%= funko.sku %>">
-                <label for="price"></label>Precio: <input for="price" class="admin-input" name="price" type="text" placeholder="$ <%= funko.price %>">
-                <label for="stock"></label>Stock: <input for="stock" class="admin-input" name="stock" type="text" placeholder="<%= funko.stock %>">
+                <label for="sku"></label>SKU: <input for="sku" class="admin-input" type="text" name="sku" value="<%= funko.sku %>">
+                <label for="price"></label>Precio: <input for="price" class="admin-input" name="price" type="text" value="$ <%= funko.price %>">
+                <label for="stock"></label>Stock: <input for="stock" class="admin-input" name="stock" type="text" value="<%= funko.stock %>">
             </div>
             <div class="form-admin__product-details">
-              <label for="discount"></label>Descuento: <input for="discount" class="admin-input" type="text" name="discount" placeholder="<%= funko.discount %>%">
+              <label for="discount"></label>Descuento: <input for="discount" class="admin-input" type="text" name="discount" value="<%= funko.discount %>">
               <label for="dues">Cuotas: </label>
               <select for="dues" name="dues" id="dues">
                 <option value="3">3 cuotas sin interés</option>
@@ -53,11 +53,11 @@
             </div>
             <div class="form-admin__product-details form-admin__img-container" >
               <div>
-                <img src="<%= funko.image_front %>" alt="" class="admin-input"><p>Frente</p>
+                <img src="/img/<%= funko.image_front %>" alt="" class="admin-input"><p>Frente</p>
                 <input type="hidden" for="image_front_old" value="<%= funko.image_front %>" />
               </div>
               <div>
-                <img src="<%= funko.image_back %>" alt="" class="admin-input"><p>Dorso</p>
+                <img src="/img/<%= funko.image_back %>" alt="" class="admin-input"><p>Dorso</p>
                 <input type="hidden" for="image_back_old" value="<%= funko.image_back %>" />
               </div>
             </div>

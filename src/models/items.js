@@ -15,7 +15,7 @@ const editFunko = async (params, product_id) => {
     try {
         const { product_name, product_description, price, stock, discount, sku, dues, image_front, image_back, licence_id, category_id } = params;
         const updateFields = {};
-
+        console.log(params)
         if (product_name.trim() !== '') updateFields.product_name = product_name;
         if (product_description.trim() !== '') updateFields.product_description = product_description;
         if (!isNaN(price)) updateFields.price = price;
@@ -23,8 +23,8 @@ const editFunko = async (params, product_id) => {
         if (discount.trim() !== '') updateFields.discount = discount;
         if (sku.trim() !== '') updateFields.sku = sku;
         if (dues.trim() !== '') updateFields.dues = dues;
-        if (image_front !== undefined) updateFields.image_front = image_front;
-        if (image_back !== undefined) updateFields.image_back = image_back;
+        //if (image_front !== undefined) updateFields.image_front = image_front;
+        //if (image_back !== undefined) updateFields.image_back = image_back;
         if (!isNaN(licence_id)) updateFields.licence_id = licence_id;
         if (!isNaN(category_id)) updateFields.category_id = category_id;
         
@@ -55,13 +55,14 @@ const deleteFunko = async (id) => {
 const getAllCollections = async () => {
     try {
         const [rows] = await conn.query(`
-        SELECT * FROM (
-            SELECT p.product_id, p.product_name, p.image_front, l.licence_id,l.licence_name, l.licence_description,
-            ROW_NUMBER() OVER (PARTITION BY p.licence_id ORDER BY p.product_id DESC) as row_num
-            FROM product p
-            INNER JOIN licence l ON p.licence_id = l.licence_id
-        ) AS ranked
-        WHERE row_num = 1;
+        SELECT p.product_id, p.product_name, p.image_front, l.licence_id, l.licence_name, l.licence_description
+        FROM product p
+        INNER JOIN licence l ON p.licence_id = l.licence_id
+        WHERE p.product_id = (
+            SELECT MAX(product_id)
+            FROM product
+            WHERE licence_id = p.licence_id
+        );
     `);
     return rows;
     } catch (error) {

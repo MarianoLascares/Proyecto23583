@@ -30,6 +30,7 @@ const mainControllers = {
             email: req.body.email,
             password: req.body.password,
         };
+        console.log(params)
         const agregado = await modelos.createUser(params)
         res.redirect('/auth/login')
     },

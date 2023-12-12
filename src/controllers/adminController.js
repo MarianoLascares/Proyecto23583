@@ -1,5 +1,5 @@
 const modelos = require('../models/items.js')
-const upload = require('./../config/multerConfig'); // Importa la configuración de Multer
+const upload = require('./../config/multerConfig');
 
 const uploadFields = [
   { name: 'image_front', maxCount: 1 },
@@ -8,7 +8,7 @@ const uploadFields = [
 
 const mainControllers = {
     admin: (req, res) => res.send('Ruta para la Vista de Admin'),
-    list: async (req, res) =>{
+    list: async (req,  res) =>{
         const funkos = await modelos.getAllFunkos()
         
         res.render('../views/pages/admin/listado.ejs', {
@@ -38,8 +38,8 @@ const mainControllers = {
                 discount: req.body.discount,
                 sku : req.body.sku,
                 dues: req.body.dues,
-                image_front: licenceFolders[req.body.licence] + req.files['image_front'][0].filename, 
-                image_back: licenceFolders[req.body.licence] + req.files['image_back'][0].filename,
+                image_front: "/img-carga/image-front.png"/*licenceFolders[req.body.licence] + req.files['image_front'][0].filename*/, 
+                image_back: "/img-carga/image-back.png"/*licenceFolders[req.body.licence] + req.files['image_back'][0].filename*/,
                 licence_id: req.body.licence,
                 category_id: req.body.category,
             };
@@ -59,7 +59,7 @@ const mainControllers = {
     postEdit: [
         upload.fields(uploadFields),
         async (req, res) => {
-            let image_front
+            /*let image_front
             let image_back
             if(req.files['image_front'] !== null){
                 image_front = req.body.image_front_old
@@ -70,7 +70,7 @@ const mainControllers = {
                 image_back = req.body.image_back_old
             }else{
                 image_back = req.files['image_back'][0].filename
-            }
+            }*/
             const product_id = req.body.product_id
             const params = {
                 product_name: req.body.product_name,
@@ -80,8 +80,8 @@ const mainControllers = {
                 discount: req.body.discount,
                 sku : req.body.sku,
                 dues: req.body.dues,
-                image_front: image_front, 
-                image_back: image_back,
+                image_front: req.body.image_front_old/*image_front*/, 
+                image_back: req.body.image_back_old/*image_back*/,
                 licence_id: req.body.licence,
                 category_id: req.body.category,
             };

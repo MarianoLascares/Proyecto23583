@@ -2,10 +2,12 @@
 <body>
     <%- include('../../partials/headerAdmin.ejs') -%>    
     <main class="container">
-        <div class="buscador">
-            <iconify-icon class="search-icon" icon="material-symbols:search"></iconify-icon>
-            <input type="text" class="search-input" name="" id="" placeholder="codigo, nombre o categoria">
-        </div>
+        <form action="/shop/buscador"  method="get">
+            <div class="buscador">
+                <iconify-icon class="search-icon" icon="material-symbols:search"></iconify-icon>
+                <input type="text" class="search-input" name="" id="" placeholder="codigo, nombre o categoria">
+            </div>
+        </form>
         <div class="title-container">
             <h1 class="title-container-h1">LISTADO DE PRODUCTOS</h1>
             <div class="add-container">

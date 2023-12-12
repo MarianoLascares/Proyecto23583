@@ -1,26 +1,20 @@
 const mysql =require('mysql2')
-
-/*const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'DESKTOP-LVVS1OI\SQLEXPRESS',
-    password: '',
-    database: 'funko_test'
-})
-
-connection.connect()
-module.exports = connection*/
+require('dotenv').config()
 
 const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'funko_test',
-    port: 3306,
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASS,
+    database: process.env.DB,
+    port: process.env.DBPORT,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
 })
 
+module.exports = {
+    conn: pool.promise()
+}
 module.exports = {
     conn: pool.promise()
 }

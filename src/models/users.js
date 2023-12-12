@@ -4,19 +4,30 @@ const crypt = require('bcryptjs')
 const verificarUser = async (email, password) => {
     try {
         const [verificado] = await conn.query(`SELECT * FROM user 
-                                            WHERE email = ? 
-                                            AND password = ?`, [email, password])
-        return verificado[0]
+                                            WHERE email = ?`, [email]);
+        
+        if (!verificado || verificado.length === 0) {
+            return verificado[0];
+        }
+
+        const hashedPassword = verificado[0].password;
+        const passwordMatch = await crypt.compare(password, hashedPassword);
+
+        if (passwordMatch) {
+            return verificado[0];
+        } else {
+            return null;
+        }
     } catch (error) {
-        throw error
-    } finally{
-        conn.releaseConnection()
+        throw error;
+    } finally {
+        conn.releaseConnection();
     }
 }
 
 const createUser = async (params) => {
-    //const hash = await crypt.hash(params.password, 1)
-    //params.password = hash
+    const hash = await crypt.hash(params.password, 1)
+    params.password = hash
     try {
         const [creado] = await conn.query(`INSERT INTO user SET ?;`, params);
         return creado;

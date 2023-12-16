@@ -2,10 +2,10 @@ const express = require('express')
 const router = express.Router()
 const mainControllers = require('../controllers/mainController')
 
-router.get('/', (req, res) => {
-    res.redirect('/home');
+router.get('/home', (req, res) => {
+    res.redirect('/');
 });
-router.get('/home', mainControllers.home)
+router.get('/', mainControllers.home)
 router.get('/contact', mainControllers.contact)
 router.get('/about', mainControllers.about)
 router.get('/faqs', mainControllers.faqs)

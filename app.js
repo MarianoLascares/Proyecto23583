@@ -33,4 +33,8 @@ app.use('/shop', shopRoutes)
 app.use('/admin', adminRoutes)
 app.use('/auth', authRoutes)
 
+app.use((req, res, next) => {
+    res.redirect('/error404'); // Redirige a la ruta error404
+  });
+
 app.listen(port, () => console.log("Servidor corriendo en http://localhost:3000"));

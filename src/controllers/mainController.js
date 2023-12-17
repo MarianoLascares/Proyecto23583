@@ -17,7 +17,12 @@ const mainControllers = {
         })
     },
     about: (req, res) => res.send('Ruta para la Vista de About'),
-    faqs: (req, res) => res.send('Ruta para la Vista de Faqs')
+    faqs: (req, res) => res.send('Ruta para la Vista de Faqs'),
+    error404: (req,res) => {
+        res.render('../views/pages/404',{
+            title: "Error 404"
+        })
+    }
 }
 
 module.exports = mainControllers

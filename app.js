@@ -10,6 +10,7 @@ const session = require('express-session')
 
 app.use(bodyParser.urlencoded({ extended: false }));
 const port = process.env.PORT || 3000;
+
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '/src/views'))
 
@@ -23,7 +24,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'))
 app.use('/', mainRoutes)
 app.use('/shop', shopRoutes)
 app.use('/admin', adminRoutes)

@@ -1,10 +1,10 @@
 const modelos = require('../models/items.js')
-const upload = require('./../config/multerConfig');
+//const upload = require('./../config/multerConfig');
 
-const uploadFields = [
+/*onst uploadFields = [
   { name: 'image_front', maxCount: 1 },
   { name: 'image_back', maxCount: 1 },
-];
+];*/
 
 const mainControllers = {
     admin: (req, res) => res.send('Ruta para la Vista de Admin'),
@@ -24,7 +24,7 @@ const mainControllers = {
     },
 
     postCreate: [
-        upload.fields(uploadFields),
+        //upload.fields(uploadFields),
         async (req, res) => {
             const licenceFolders = {
                 1: '/img/pokemon/',
@@ -57,7 +57,7 @@ const mainControllers = {
         })
     },
     postEdit: [
-        upload.fields(uploadFields),
+        //upload.fields(uploadFields),
         async (req, res) => {
             /*let image_front
             let image_back

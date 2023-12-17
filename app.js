@@ -6,9 +6,10 @@ const mainRoutes = require('./src/routes/mainRoutes')
 const shopRoutes = require('./src/routes/shopRoutes')
 const adminRoutes = require('./src/routes/adminRoutes')
 const authRoutes = require('./src/routes/authRoutes')
+const methodOverride = require('method-override');
 const session = require('express-session')
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 const port = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs')
@@ -23,6 +24,8 @@ app.use((req, res, next) => {
     res.locals.sessionUser = req.session.userid;
     next();
 });
+
+app.use(methodOverride('_method'));
 
 app.use(express.static(__dirname + '/public'))
 app.use('/', mainRoutes)

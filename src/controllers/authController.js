@@ -12,7 +12,7 @@ const mainControllers = {
         const valido = await modelos.verificarUser(email, password)
         if(valido !== undefined){
             req.session.userid = valido.user_id
-            res.redirect(`/home?user=${valido.user_id}`)
+            res.redirect(`/?user=${valido.user_id}`)
         } else {
             res.redirect('/auth/login')
         }
